@@ -363,7 +363,6 @@ EOF
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
-Encoding=UTF-8
 Name=Quake II
 Comment=%{Summary}
 Exec=%{_gamesbindir}/quake2
@@ -386,7 +385,6 @@ EOF
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}-xatrix.desktop
 [Desktop Entry]
-Encoding=UTF-8
 Name=Quake II: The Reckoning
 Comment=%{Summary}
 Exec=%{_gamesbindir}/quake2 +set game xatrix
@@ -409,7 +407,6 @@ EOF
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}-rogue.desktop
 [Desktop Entry]
-Encoding=UTF-8
 Name=Quake II: Ground Zero
 Comment=%{Summary}
 Exec=%{_gamesbindir}/quake2 +set game rogue
@@ -432,7 +429,6 @@ EOF
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}-ctf.desktop
 [Desktop Entry]
-Encoding=UTF-8
 Name=Quake II: Capture The Flag
 Comment=%{Summary}
 Exec=%{_gamesbindir}/quake2 +set game ctf
