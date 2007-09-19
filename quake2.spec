@@ -1,7 +1,7 @@
 %define name		quake2
 %define version		3.21_r0.16.1
 %define icculus_version r0.16.1
-%define release		%mkrel 3
+%define release		%mkrel 4
 %define rogue_source	roguesrc320
 %define xatrix_source	xatrixsrc320
 %define	Summary		Quake II
@@ -367,9 +367,9 @@ Name=Quake II
 Comment=%{Summary}
 Exec=%{_gamesbindir}/quake2
 Icon=%{name}
-Terminal=false
+Terminal=true
 Type=Application
-StartupNotify=true
+StartupNotify=false
 Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
 EOF
 
