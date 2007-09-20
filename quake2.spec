@@ -290,14 +290,14 @@ install -d %{buildroot}%{_gamesdatadir}/quake2/{baseq2,ctf,rogue,xatrix}
 install -d %{buildroot}%{_libdir}/games/quake2/{baseq2,ctf,rogue,xatrix}
 
 # Install files
-cp releasei386/ref_*.so %{buildroot}%{_libdir}/games/quake2/
-cp releasei386/quake2 %{buildroot}%{_gamesbindir}/quake2.bin
-cp releasei386/q2ded %{buildroot}%{_gamesbindir}/q2ded.bin
-cp releasei386/sdlquake2 %{buildroot}%{_gamesbindir}/sdlquake2.bin
-cp releasei386/gamei386.so %{buildroot}%{_libdir}/games/quake2/baseq2/
-cp releasei386/ctf/gamei386.so %{buildroot}%{_libdir}/games/quake2/ctf/
-cp releasei386/rogue/gamei386.so %{buildroot}%{_libdir}/games/quake2/rogue/
-cp releasei386/xatrix/gamei386.so %{buildroot}%{_libdir}/games/quake2/xatrix/
+cp release%{_arch}/ref_*.so %{buildroot}%{_libdir}/games/quake2/
+cp release%{_arch}/quake2 %{buildroot}%{_gamesbindir}/quake2.bin
+cp release%{_arch}/q2ded %{buildroot}%{_gamesbindir}/q2ded.bin
+cp release%{_arch}/sdlquake2 %{buildroot}%{_gamesbindir}/sdlquake2.bin
+cp release%{_arch}/game%{_arch}.so %{buildroot}%{_libdir}/games/quake2/baseq2/
+cp release%{_arch}/ctf/game%{_arch}.so %{buildroot}%{_libdir}/games/quake2/ctf/
+cp release%{_arch}/rogue/game%{_arch}.so %{buildroot}%{_libdir}/games/quake2/rogue/
+cp release%{_arch}/xatrix/game%{_arch}.so %{buildroot}%{_libdir}/games/quake2/xatrix/
 
 install -m644 %{SOURCE7} -D %{buildroot}%{_sysconfdir}/quake2/baseq2/server.cfg
 install -m644 %{SOURCE9} -D %{buildroot}%{_sysconfdir}/quake2/ctf/server.cfg
@@ -496,7 +496,7 @@ rm -rf %{buildroot}
 %{_gamesbindir}/quake2.bin
 %dir %{_libdir}/games/quake2
 %{_libdir}/games/quake2/baseq2
-%{_libdir}/games/quake2/baseq2/gamei386.so
+%{_libdir}/games/quake2/baseq2/game%{_arch}.so
 %{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/%{name}.png
@@ -559,7 +559,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,755)
 %{_libdir}/games/quake2/xatrix
 %{_gamesdatadir}/quake2/xatrix
-%{_libdir}/games/quake2/xatrix/gamei386.so
+%{_libdir}/games/quake2/xatrix/game%{_arch}.so
 %{_menudir}/%{name}-xatrix
 %{_datadir}/applications/mandriva-%{name}-xatrix.desktop
 
