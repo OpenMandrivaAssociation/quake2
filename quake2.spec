@@ -25,6 +25,7 @@ Group:		Games/Arcade
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Patch0:		quake2-chris.patch
+Patch1:		quake2-fix_build.patch
 BuildRequires:  SDL-devel aalib-devel svgalib-devel X11-devel
 
 %description
@@ -239,6 +240,7 @@ This archive contains the Quake II dedicated server.
 %setup -q -T -D -a 1 -n %{name}-%{icculus_version}
 %setup -q -T -D -a 2 -n %{name}-%{icculus_version}
 %patch0 -p1 -b .chris
+%patch1 -p1
 
 # Patch Makefile
 sed "s|-malign|-falign|g" < Makefile > Makefile.tmp
