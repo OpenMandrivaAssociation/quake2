@@ -26,6 +26,8 @@ License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Patch0:		quake2-chris.patch
 Patch1:		quake2-fix_build.patch
+Patch2:		quake2-allow_softx_on_x86_64.patch
+Patch3:		quake2-build_softsdl_on_x86_64.patch
 BuildRequires:  SDL-devel aalib-devel svgalib-devel X11-devel
 
 %description
@@ -240,7 +242,9 @@ This archive contains the Quake II dedicated server.
 %setup -q -T -D -a 1 -n %{name}-%{icculus_version}
 %setup -q -T -D -a 2 -n %{name}-%{icculus_version}
 %patch0 -p1 -b .chris
-%patch1 -p1
+%patch1 -p1 -b .fix_build
+%patch2 -p0 -b .allow_softx_on_x86_64
+%patch3 -p0 -b .build_softsdl_on_x86_64
 
 # Patch Makefile
 sed "s|-malign|-falign|g" < Makefile > Makefile.tmp
@@ -496,7 +500,6 @@ rm -rf %{buildroot}
 %{_gamesbindir}/quake2.bin
 %dir %{_libdir}/games/quake2
 %{_libdir}/games/quake2/baseq2
-%{_libdir}/games/quake2/baseq2/game%{_arch}.so
 %{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/%{name}.png
@@ -504,9 +507,11 @@ rm -rf %{buildroot}
 %{_liconsdir}/%{name}.png
 %{_gamesdatadir}/quake2/baseq2
 
-%files	svga
+%ifnarch x86_64
+%files svga
 %defattr(-,root,root,755)
 %{_libdir}/games/quake2/ref_soft.so
+%endif
 
 %files x11
 %defattr(-,root,root,755)
@@ -559,7 +564,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root,755)
 %{_libdir}/games/quake2/xatrix
 %{_gamesdatadir}/quake2/xatrix
-%{_libdir}/games/quake2/xatrix/game%{_arch}.so
 %{_menudir}/%{name}-xatrix
 %{_datadir}/applications/mandriva-%{name}-xatrix.desktop
 
