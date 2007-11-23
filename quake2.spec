@@ -36,25 +36,25 @@ have been reduced to just a few.  Now you must fight your way through heavily
 fortified military installations, lower the city's defenses and shut down
 the enemy's war machine.  Only then will the fate of humanity be known.
 
-LARGER, MISSION-BASED LEVELS
+* Larger, mission-based levels:
 
 You have a series of complex missions, what you do in one level could affect
 another.  One false move and you could alert security, flood an entire
 passageway, or worse.
 
-SUPERIOR ARTIFICIAL INTELLIGENCE
+* Superior artificial intelligence:
 
 This time the enemy has IQs the size of their appetites.  The can evade your
 attack, strategically position themselves for an ambush and hunt your ass 
 down.
 
-IN-YOUR-FACE SOUND AND GRAPHICS
+* In-your-face sound and graphics
 
 hear distant combat explosions and rockets whizzing past your head.  And with
 a compatible 3-D graphics accelerator, experience smoother 16-bit graphics and
 real-time lighting effects.
 
-WICKED MULTIPLAYER CAPABILITIES
+* Wicked multiplayer capabilities
 
 More than 32 players, friends or foes, can do at it in a bloody deathmatch via
 LAN and over the internet.
@@ -147,19 +147,19 @@ The Reckoning is sure to get your heart pumping...well, if you can avoid
 getting gibbed by the Strogg. Check out just some of the features below that 
 will give you the cardiac workout you need!
 
-18 ARDUOUS LEVELS TO CONQUER & 7 BRUTAL DEATHMATCH EXCLUSIVE LEVELS
+* 18 arduous levels to conquer & 7 brutal deathmatch exclusive levels:
 
 Dive into a series of mission-based campaigns and ransack your way through 
 three all-new hazardous episodes. Experience bioluminescent life forms, 
 stalagmites and stalactites and other breathtaking environments. 
 
-FRESH FOES TO DEFEAT
+* Fresh foes to defeat:
 
 Gekks are lighting-fast creatures that will hunt you down, leaping from the 
 shadows to claw or bite. Though innocent looking, the Repair Bot has the 
 ability to awaken dead Strogg from eternal sleep.
  
-ADDED WEAPONS TO WIELD
+* Added weapons to wield:
 
 The Phalanx Particle Canon emits a pulsing stream of deadly energy into 
 unsuspecting foes. 
