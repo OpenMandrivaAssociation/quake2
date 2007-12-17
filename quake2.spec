@@ -23,7 +23,6 @@ Source12:	%{name}_32.png
 Source13:	%{name}_48.png
 Group:		Games/Arcade
 License:	GPL
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Patch0:		quake2-chris.patch
 Patch1:		quake2-fix_build.patch
 Patch2:		quake2-allow_softx_on_x86_64.patch
