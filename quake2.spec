@@ -287,7 +287,6 @@ export OPTFLAGS="%{optflags} -ffast-math -funroll-loops -fomit-frame-pointer -fe
 rm -rf %{buildroot}
 
 # Install dirs
-install -d %{buildroot}{%{_initrddir},%{_menudir},%{_iconsdir},%{_miconsdir},%{_liconsdir},%{_datadir}/applications}
 install -d %{buildroot}%{_sysconfdir}/quake2/{baseq2,ctf,rogue,xatrix}
 install -d %{buildroot}%{_gamesbindir}
 install -d %{buildroot}%{_gamesdatadir}/quake2/{baseq2,ctf,rogue,xatrix}
@@ -349,23 +348,6 @@ install -m644 %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
 install -m644 %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
 # Menu
-cat << EOF > %{buildroot}%{_menudir}/%{name}
-?package(%{name}): needs="x11" \
-		   section="More Applications/Games/Arcade/Quake II" \
-		   title="Quake II" \
-		   longtitle="%{Summary}" \
-		   icon="%{name}.png" \
-		   command="%{_gamesbindir}/quake2" \
-		   xdg="true"
-
-?package(%{name}): needs="x11" \
-		   section="Documentation" \
-		   title="Quake2 Linux Stuff" \
-		   longtitle="%{Summary}" \
-		   icon="quake2.png" \
-                   command="\$BROWSER -remote openURL %{url} || \$BROWSER %{url}" \
-		   xdg="true"
-EOF
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
@@ -379,15 +361,6 @@ StartupNotify=false
 Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
 EOF
 
-cat << EOF > %{buildroot}%{_menudir}/%{name}-xatrix
-?package(%{name}): needs="x11" \\
-		   section="More Applications/Games/Arcade/Quake II" \
-		   title="The Reckoning" \
-		   longtitle="%{Summary}" \
-		   icon="%{name}.png" \
-		   command="%{_gamesbindir}/quake2 +set game xatrix" \
-		   xdg="true"
-EOF
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}-xatrix.desktop
 [Desktop Entry]
@@ -401,15 +374,6 @@ StartupNotify=true
 Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
 EOF
 
-cat << EOF > %{buildroot}%{_menudir}/%{name}-rogue
-?package(%{name}): needs="x11" \
-		   section="More Applications/Games/Arcade/Quake II" \
-		   title="Ground Zero" \
-		   longtitle="%{Summary}" \
-		   icon="%{name}.png" \
-		   command="%{_gamesbindir}/quake2 +set game rogue" \
-		   xdg="true"
-EOF
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}-rogue.desktop
 [Desktop Entry]
@@ -423,15 +387,6 @@ StartupNotify=true
 Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
 EOF
 
-cat << EOF > %{buildroot}%{_menudir}/%{name}-ctf
-?package(%{name}): needs="x11" \
-		   section="More Applications/Games/Arcade/Quake II" \
-		   title="Capture The Flag" \
-		   longtitle="%{Summary}" \
-		   icon="%{name}.png" \
-		   command="%{_gamesbindir}/quake2 +set game ctf" \
-		   xdg="true"
-EOF
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}-ctf.desktop
 [Desktop Entry]
@@ -500,7 +455,6 @@ rm -rf %{buildroot}
 %{_gamesbindir}/quake2.bin
 %dir %{_libdir}/games/quake2
 %{_libdir}/games/quake2/baseq2
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
@@ -550,20 +504,17 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/quake2/ctf/server.cfg
 %{_libdir}/games/quake2/ctf
 %{_gamesdatadir}/quake2/ctf
-%{_menudir}/%{name}-ctf
 %{_datadir}/applications/mandriva-%{name}-ctf.desktop
 
 %files rogue
 %defattr(-,root,root,755)
 %{_libdir}/games/quake2/rogue
 %{_gamesdatadir}/quake2/rogue
-%{_menudir}/%{name}-rogue
 %{_datadir}/applications/mandriva-%{name}-rogue.desktop
 
 %files xatrix
 %defattr(-,root,root,755)
 %{_libdir}/games/quake2/xatrix
 %{_gamesdatadir}/quake2/xatrix
-%{_menudir}/%{name}-xatrix
 %{_datadir}/applications/mandriva-%{name}-xatrix.desktop
 
