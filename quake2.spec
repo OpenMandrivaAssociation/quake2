@@ -1,7 +1,7 @@
 %define name		quake2
 %define version		3.21_r0.16.1
 %define icculus_version r0.16.1
-%define release		%mkrel 4
+%define release		%mkrel 5
 %define rogue_source	roguesrc320
 %define xatrix_source	xatrixsrc320
 %define	Summary		Quake II
@@ -28,6 +28,8 @@ Patch0:		quake2-chris.patch
 Patch1:		quake2-fix_build.patch
 Patch2:		quake2-allow_softx_on_x86_64.patch
 Patch3:		quake2-build_softsdl_on_x86_64.patch
+# fix undefined mremap (create errors on x86_64)
+Patch4:		quake2-fix_mremap.spec
 BuildRequires:  SDL-devel aalib-devel svgalib-devel X11-devel
 
 %description
@@ -245,6 +247,7 @@ This archive contains the Quake II dedicated server.
 %patch1 -p1 -b .fix_build
 %patch2 -p0 -b .allow_softx_on_x86_64
 %patch3 -p0 -b .build_softsdl_on_x86_64
+%patch4 -p1
 
 # Patch Makefile
 sed "s|-malign|-falign|g" < Makefile > Makefile.tmp
@@ -348,6 +351,7 @@ install -m644 %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
 install -m644 %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
 # Menu
+%{__mkdir_p} %{buildroot}%{_datadir}/applications
 
 cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
