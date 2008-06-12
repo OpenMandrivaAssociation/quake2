@@ -418,11 +418,15 @@ ln -sf %{_gamesdatadir}/quake2/xatrix/pak0.pak %{buildroot}%{_libdir}/games/quak
 %clean
 rm -rf %{buildroot}
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %post server
 %_post_service q2ded
@@ -431,26 +435,38 @@ rm -rf %{buildroot}
 %_preun_service q2ded
 
 %post ctf
+%if %mdkversion < 200900
 %{update_menus}
+%endif
 %_post_service q2ctf
 
 %preun ctf
 %_preun_service q2ctf
 
+%if %mdkversion < 200900
 %postun ctf
 %{clean_menus}
+%endif
 
+%if %mdkversion < 200900
 %post rogue
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun rogue
 %{clean_menus}
+%endif
 
+%if %mdkversion < 200900
 %post xatrix
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun xatrix
 %{clean_menus}
+%endif
 
 %files
 %defattr(-,root,root,755)
