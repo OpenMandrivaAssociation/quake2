@@ -1,7 +1,7 @@
 %define name		quake2
 %define version		3.21_r0.16.1
 %define icculus_version r0.16.1
-%define release		%mkrel 8
+%define release		%mkrel 9
 %define rogue_source	roguesrc320
 %define xatrix_source	xatrixsrc320
 %define	Summary		Quake II
