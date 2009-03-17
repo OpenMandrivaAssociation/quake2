@@ -29,7 +29,7 @@ Patch1:		quake2-fix_build.patch
 Patch2:		quake2-allow_softx_on_x86_64.patch
 Patch3:		quake2-build_softsdl_on_x86_64.patch
 # fix undefined mremap (create errors on x86_64)
-Patch4:		quake2-fix_mremap.spec
+Patch4:		quake2-fix_mremap.patch
 BuildRequires:  SDL-devel aalib-devel svgalib-devel X11-devel
 
 %description
