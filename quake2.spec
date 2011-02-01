@@ -36,6 +36,7 @@ BuildRequires:	libx11-devel
 BuildRequires:	libxext-devel
 BuildRequires:	libxxf86dga-devel
 BuildRequires:	libxxf86vm-devel
+BuildRequires:	svgalib-devel
 
 %description
 Shortly after landing on an alien surface you learn that hundreds of your men
