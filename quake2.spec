@@ -1,7 +1,7 @@
 %define name		quake2
 %define version		3.21_r0.16.1
 %define icculus_version r0.16.1
-%define release		%mkrel 10
+%define release		%mkrel 11
 %define rogue_source	roguesrc320
 %define xatrix_source	xatrixsrc320
 %define	Summary		Quake II
@@ -30,7 +30,12 @@ Patch2:		quake2-allow_softx_on_x86_64.patch
 Patch3:		quake2-build_softsdl_on_x86_64.patch
 # fix undefined mremap (create errors on x86_64)
 Patch4:		quake2-fix_mremap.patch
-BuildRequires:  SDL-devel aalib-devel svgalib-devel X11-devel
+BuildRequires:  SDL-devel
+BuildRequires:	aalib-devel
+BuildRequires:	libx11-devel
+BuildRequires:	libxext-devel
+BuildRequires:	libxxf86dga-devel
+BuildRequires:	libxxf86vm-devel
 
 %description
 Shortly after landing on an alien surface you learn that hundreds of your men
@@ -258,6 +263,7 @@ sed "s|<nan\.h>|<bits/nan.h>|" < %{rogue_source}/g_local.h > %{rogue_source}/g_l
 mv %{rogue_source}/g_local.h.tmp %{rogue_source}/g_local.h
 
 %build
+%define _disable_ld_no_undefined 1
 %ifarch %{ix86} x86_64
 export OPTFLAGS="-O2 -ffast-math -funroll-loops -falign-loops=2 -falign-jumps=2 -falign-functions=2 -fno-strict-aliasing"
 %else
@@ -284,7 +290,7 @@ export OPTFLAGS="%{optflags} -ffast-math -funroll-loops -fomit-frame-pointer -fe
 	SDLDIR=%{_libdir} \
 	XATRIX_DIR=%{xatrix_source} \
 	ROGUE_DIR=%{rogue_source} \
-	CC="gcc $OPTFLAGS"
+	CC="gcc $OPTFLAGS %{ldflags}"
 
 %install
 rm -rf %{buildroot}
