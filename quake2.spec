@@ -1,15 +1,12 @@
-%define name		quake2
-%define version		3.21_r0.16.1
 %define icculus_version r0.16.1
-%define release		%mkrel 11
 %define rogue_source	roguesrc320
 %define xatrix_source	xatrixsrc320
 %define	Summary		Quake II
 
 Summary:	%{Summary}
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		quake2
+Version:	3.21_r0.16.1
+Release:	12
 URL:		http://icculus.org/projects/quake2/
 Source0:	%{name}-%{icculus_version}.tar.bz2
 Source1:	%{rogue_source}.tar.bz2
@@ -23,7 +20,6 @@ Source12:	%{name}_32.png
 Source13:	%{name}_48.png
 Group:		Games/Arcade
 License:	GPL
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Patch0:		quake2-chris.patch
 Patch1:		quake2-fix_build.patch
 Patch2:		quake2-allow_softx_on_x86_64.patch
@@ -294,8 +290,6 @@ export OPTFLAGS="%{optflags} -ffast-math -funroll-loops -fomit-frame-pointer -fe
 	CC="gcc $OPTFLAGS %{ldflags}"
 
 %install
-rm -rf %{buildroot}
-
 # Install dirs
 install -d %{buildroot}%{_sysconfdir}/quake2/{baseq2,ctf,rogue,xatrix}
 install -d %{buildroot}%{_gamesbindir}
@@ -422,61 +416,18 @@ ln -sf %{_gamesdatadir}/quake2/ctf/pak0.pak %{buildroot}%{_libdir}/games/quake2/
 ln -sf %{_gamesdatadir}/quake2/rogue/pak0.pak %{buildroot}%{_libdir}/games/quake2/rogue/pak0.pak
 ln -sf %{_gamesdatadir}/quake2/xatrix/pak0.pak %{buildroot}%{_libdir}/games/quake2/xatrix/pak0.pak
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
-
 %post server
 %_post_service q2ded
 
 %preun server
 %_preun_service q2ded
 
-%post ctf
-%if %mdkversion < 200900
-%{update_menus}
-%endif
 %_post_service q2ctf
 
 %preun ctf
 %_preun_service q2ctf
 
-%if %mdkversion < 200900
-%postun ctf
-%{clean_menus}
-%endif
-
-%if %mdkversion < 200900
-%post rogue
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun rogue
-%{clean_menus}
-%endif
-
-%if %mdkversion < 200900
-%post xatrix
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun xatrix
-%{clean_menus}
-%endif
-
 %files
-%defattr(-,root,root,755)
 %doc README TODO src/docs/3.21_Changes.txt
 %attr(755,root,root) %{_gamesbindir}/quake2
 %{_gamesbindir}/quake2.bin
@@ -490,32 +441,26 @@ rm -rf %{buildroot}
 
 %ifnarch x86_64
 %files svga
-%defattr(-,root,root,755)
 %{_libdir}/games/quake2/ref_soft.so
 %endif
 
 %files x11
-%defattr(-,root,root,755)
 %{_libdir}/games/quake2/ref_softx.so
 
 %files glx
-%defattr(-,root,root,755)
 %{_libdir}/games/quake2/ref_glx.so
 
 %files sdl
-%defattr(-,root,root,755)
 %attr(755,root,root) %{_gamesbindir}/sdlquake2
 %{_gamesbindir}/sdlquake2.bin
 %{_libdir}/games/quake2/ref_sdlgl.so
 %{_libdir}/games/quake2/ref_softsdl.so
 
 %files aa
-%defattr(-,root,root,755)
 %{_libdir}/games/quake2/ref_sdlgl.so
 %{_libdir}/games/quake2/ref_softaa.so
 
 %files server
-%defattr(-,root,root,755)
 %attr(755,root,root) %{_initrddir}/q2ded
 %attr(755,root,root) %{_gamesbindir}/q2ded
 %dir %{_sysconfdir}/quake2
@@ -524,7 +469,6 @@ rm -rf %{buildroot}
 %{_gamesbindir}/q2ded.bin
 
 %files ctf
-%defattr(-,root,root,755)
 %doc src/ctf/docs/*.gif src/ctf/docs/*.html src/ctf/docs/*.jpg
 %attr(755,root,root) %{_initrddir}/q2ctf
 %dir %{_sysconfdir}/quake2/ctf
@@ -534,14 +478,11 @@ rm -rf %{buildroot}
 %{_datadir}/applications/mandriva-%{name}-ctf.desktop
 
 %files rogue
-%defattr(-,root,root,755)
 %{_libdir}/games/quake2/rogue
 %{_gamesdatadir}/quake2/rogue
 %{_datadir}/applications/mandriva-%{name}-rogue.desktop
 
 %files xatrix
-%defattr(-,root,root,755)
 %{_libdir}/games/quake2/xatrix
 %{_gamesdatadir}/quake2/xatrix
 %{_datadir}/applications/mandriva-%{name}-xatrix.desktop
-
