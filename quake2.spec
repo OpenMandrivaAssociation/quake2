@@ -30,6 +30,7 @@ Patch2:		quake2-allow_softx_on_x86_64.patch
 Patch3:		quake2-build_softsdl_on_x86_64.patch
 # fix undefined mremap (create errors on x86_64)
 Patch4:		quake2-fix_mremap.patch
+Patch5:		quake2-r0.16.1-fix-alsa-sound-driver.patch
 BuildRequires:  SDL-devel
 BuildRequires:	aalib-devel
 BuildRequires:	libx11-devel
@@ -254,6 +255,7 @@ This archive contains the Quake II dedicated server.
 %patch2 -p0 -b .allow_softx_on_x86_64
 %patch3 -p0 -b .build_softsdl_on_x86_64
 %patch4 -p1
+%patch5 -p1 -b .alsa~
 
 # Patch Makefile
 sed "s|-malign|-falign|g" < Makefile > Makefile.tmp
