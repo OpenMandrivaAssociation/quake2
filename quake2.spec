@@ -258,12 +258,10 @@ This archive contains the Quake II dedicated server.
 %patch5 -p1 -b .alsa~
 
 # Patch Makefile
-sed "s|-malign|-falign|g" < Makefile > Makefile.tmp
-mv Makefile.tmp Makefile
+sed -e "s|-malign|-falign|g" -i Makefile
 
 # Patch rogue source
-sed "s|<nan\.h>|<bits/nan.h>|" < %{rogue_source}/g_local.h > %{rogue_source}/g_local.h.tmp
-mv %{rogue_source}/g_local.h.tmp %{rogue_source}/g_local.h
+sed -e "s|<nan\.h>|<bits/nan.h>|" -i %{rogue_source}/g_local.h
 
 %build
 %define _disable_ld_no_undefined 1
