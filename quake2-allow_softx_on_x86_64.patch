@@ -1,0 +1,17 @@
+Software X renderer is stated to be not supported on x86_64, but it
+builds fine. For now just reenable it, to be in sync with i386, so we
+don't need to disable the x86_64 package.
+
+--- Makefile.orig	2007-10-28 21:40:01.000000000 -0200
++++ Makefile	2007-10-28 21:40:27.000000000 -0200
+@@ -339,8 +339,8 @@ ifeq ($(ARCH),x86_64)
+   $(warning Warning: SVGA not supported for $(ARCH))
+  endif
+ 
+- ifeq ($(strip $(BUILD_SOFTX)),YES)
+-  $(warning Warning: Software X Renderer not supported for $(ARCH))
++ ifeq ($(strip $(BUILD_X11)),YES)
++  TARGETS += $(BUILDDIR)/ref_softx.$(SHLIBEXT)
+  endif
+ 
+  ifeq ($(strip $(BUILD_GLX)),YES)

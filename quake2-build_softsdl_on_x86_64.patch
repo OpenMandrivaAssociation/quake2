@@ -1,0 +1,15 @@
+Don't know why it was missing, build ref_softsdl.so on x86_64 too.
+
+--- Makefile.orig	2007-10-28 21:24:57.000000000 -0200
++++ Makefile	2007-10-28 21:25:20.000000000 -0200
+@@ -351,6 +351,10 @@ ifeq ($(ARCH),x86_64)
+   $(warning Warning: FXGL not currently supported for $(ARCH))
+  endif
+ 
++ ifeq ($(strip $(BUILD_SDL)),YES)
++  TARGETS += $(BUILDDIR)/ref_softsdl.$(SHLIBEXT)
++ endif
++
+  ifeq ($(strip $(BUILD_SDLGL)),YES)
+   TARGETS += $(BUILDDIR)/ref_sdlgl.$(SHLIBEXT)
+  endif

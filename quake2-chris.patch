@@ -1,0 +1,24 @@
+--- quake2-r0.16.1/roguesrc320/g_items.c.chris	1998-11-30 23:53:00.000000000 +0100
++++ quake2-r0.16.1/roguesrc320/g_items.c	2006-08-07 18:11:25.000000000 +0200
+@@ -34,9 +34,6 @@
+ gitem_armor_t combatarmor_info	= { 50, 100, .60, .30, ARMOR_COMBAT};
+ gitem_armor_t bodyarmor_info	= {100, 200, .80, .60, ARMOR_BODY};
+ 
+-static int	jacket_armor_index;
+-static int	combat_armor_index;
+-static int	body_armor_index;
+ static int	power_screen_index;
+ static int	power_shield_index;
+ 
+--- quake2-r0.16.1/xatrixsrc320/g_items.c.chris	1998-11-30 23:55:00.000000000 +0100
++++ quake2-r0.16.1/xatrixsrc320/g_items.c	2006-08-07 18:07:36.000000000 +0200
+@@ -26,9 +26,6 @@
+ gitem_armor_t combatarmor_info	= { 50, 100, .60, .30, ARMOR_COMBAT};
+ gitem_armor_t bodyarmor_info	= {100, 200, .80, .60, ARMOR_BODY};
+ 
+-static int	jacket_armor_index;
+-static int	combat_armor_index;
+-static int	body_armor_index;
+ static int	power_screen_index;
+ static int	power_shield_index;
+ 
