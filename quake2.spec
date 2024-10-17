@@ -7,7 +7,7 @@ Summary:	%{Summary}
 Name:		quake2
 Version:	3.21_r0.16.1
 Release:	12
-URL:		http://icculus.org/projects/quake2/
+URL:		https://icculus.org/projects/quake2/
 Source0:	%{name}-%{icculus_version}.tar.bz2
 Source1:	%{rogue_source}.tar.bz2
 Source2:	%{xatrix_source}.tar.bz2
